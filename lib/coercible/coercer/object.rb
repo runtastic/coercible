@@ -178,6 +178,7 @@ module Coercible
       #
       # @api private
       def coerce_with_method(value, method, ref_method)
+        return unless value
         value.respond_to?(method) ? value.public_send(method) : raise_unsupported_coercion(value, ref_method)
       end
 
